@@ -189,6 +189,10 @@ public class PlayerControls3d : MonoBehaviour{
 
     void OnTriggerEnter(Collider col)
     {
+        if(col.gameObject.tag == "Death")
+        {
+            pui.ShowDeath();
+        }
         if (col.gameObject.tag == "SpacePad")
         {
             pui.SetInteract(0);
