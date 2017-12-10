@@ -21,7 +21,10 @@ public class PlayerUI : MonoBehaviour {
 
     public Sprite[] gotchas;
     public Image gotcha;
-	
+
+    public Image warning;
+    public Image death;
+    public Sprite[] deathsprite;
 	void Start ()
     {
         maxEnergy = 100f;
@@ -34,9 +37,26 @@ public class PlayerUI : MonoBehaviour {
             jumpButton.interactable = true;
         }
 	}
+    public void ShowDeath()
+    {
+        death.gameObject.SetActive(true);
+        StartCoroutine(DeathAnimation());
+    }
+    IEnumerator DeathAnimation()
+    {
+        death.sprite = deathsprite[1];
 
+        yield return new WaitForSeconds(1.0f);
+
+        death.sprite = deathsprite[0];
+
+        yield return new WaitForSeconds(1.0f);
+
+        StartCoroutine(DeathAnimation());
+    }
     public void SetInteract(int i)
     {
+        interactButton.gameObject.SetActive(true);
         interactButton.interactable = true;
         interact.interaction = i;
     }
@@ -54,12 +74,26 @@ public class PlayerUI : MonoBehaviour {
     }
     public void HideInteract()
     {
+        
         interactButton.interactable = false;
+        interactButton.gameObject.SetActive(false);
     }
 
     public void GetEnergy(float f)
     {
         energy = f;
+        if(energy < 30f)
+        {
+            warning.gameObject.SetActive(true);
+        }
+        if(energy >= 30f)
+        {
+            warning.gameObject.SetActive(false);
+        }
+        if(energy <= 0)
+        {
+            ShowDeath();
+        }
         energyBar.fillAmount = energy / maxEnergy;
     }
 
