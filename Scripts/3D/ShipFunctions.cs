@@ -28,7 +28,7 @@ public class ShipFunctions : MonoBehaviour {
         stars = PlayerPrefs.GetInt("Stars");
         maxStars = 21;
         gasYDist = 6.6f;
-        SetLightsAndScreen();
+       //SetLightsAndScreen();
     }
 
     void SetLightsAndScreen()

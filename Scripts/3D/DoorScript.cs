@@ -18,7 +18,7 @@ public class DoorScript : MonoBehaviour {
     {
         PlayerPrefs.DeleteAll();
         locked = false;
-        wiring = PlayerPrefs.GetInt("WiringCollected");
+        wiring = 1;
         opening = false;
         doorName = this.gameObject.name;
         CheckIfLocked();

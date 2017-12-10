@@ -34,7 +34,8 @@ public class Interact : MonoBehaviour {
                 pc3d.toShip = true;
                 break;
             case 1:
-                lmanager.CallWaitTimes("Planet");
+                lmanager.CallWaitTimes("CrossRoads");
+                PlayerPrefs.SetString("XroadsSpawn", "SpawnPoint");
                 break;
             case 2:
                 lmanager.CallWaitTimes("SpaceMenu");
