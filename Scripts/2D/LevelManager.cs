@@ -63,7 +63,7 @@ public class LevelManager : MonoBehaviour {
     public void ReloadLevel()
     {
         //LATAA TASON UUDESTAAN
-        SceneManager.LoadScene(scene.name);
+        StartCoroutine(WaitTimes(2.0f, 2, scene.name));
     }
     
     public void LoadOther(string s)
