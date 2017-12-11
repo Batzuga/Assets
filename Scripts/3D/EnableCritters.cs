@@ -14,7 +14,7 @@ public class EnableCritters : MonoBehaviour {
     private int c3;
 
     private Scene sc;
-    private string s;
+    public string s;
 	// Use this for initialization
 	void Start ()
     {
